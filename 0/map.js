@@ -7,7 +7,7 @@ var playable = true;
 initAudio();
 
 if (!mapboxgl.supported()) alert("Your browser does not support Mapbox GL");
-mapboxgl.accessToken = "pk.eyJ1IjoicHJvZmhvdXNlIiwiYSI6ImNqZXJnbmxkejE5ZHQycWx0NnF3Z2Z4djgifQ.cs5fxvvr9SxexUawshj4uw";
+mapboxgl.accessToken = "pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg";
 map = new mapboxgl.Map({
     container: "map",
     style: 'mapbox://styles/mapbox/satellite-streets-v9',
