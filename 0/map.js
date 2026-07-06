@@ -8,7 +8,7 @@ initAudio();
 
 if (!mapboxgl.supported()) alert("Your browser does not support Mapbox GL");
 mapboxgl.accessToken = "pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg";
-map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: "map",
     style: 'mapbox://styles/mapbox/standard',
     // style: "https://openmaptiles.github.io/dark-matter-gl-style/style-cdn.json",
