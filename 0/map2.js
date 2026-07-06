@@ -1,4 +1,5 @@
 var RADIUS = 50;
+var map = null;
 var markers = [];
 var sounds = [];
 var playable = true;
@@ -33,12 +34,17 @@ map.addControl(new mapboxgl.ScaleControl({
     unit: 'imperial'
 }), "bottom-right");
 
-map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true,
-    showUserLocation: true,
+ // Add geolocate control to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            // When active the map will receive updates to the device's location as it changes.
+            trackUserLocation: true,
+            // Draw an arrow next to the location dot to indicate which direction the device is heading.
+            showUserHeading: true,
+        showUserLocation: true,
     fitBoundsOptions: {
     }
 }).on('geolocate', function (e) {
@@ -46,58 +52,3 @@ map.addControl(new mapboxgl.GeolocateControl({
     activate(e.coords.longitude, e.coords.latitude);
 }), "top-left");
 
-map.on('mousemove', function(e) {
-    canvas.style.cursor = 'default';            
-    for (var m in markers) {
-        var marker = markers[m];
-        var lngLat = marker.getLngLat();
-        var distance = getDistance(lngLat.lng, lngLat.lat, e.lngLat.lng, e.lngLat.lat);
-        if (distance < RADIUS) {
-            canvas.style.cursor = 'pointer';
-            break;
-        }
-    }
-});
-
-map.on('click', function(e) {            
-    activate(e.lngLat.lng, e.lngLat.lat);
-});
-
-function addMarker (lng, lat, path) {
-    markers.push(new mapboxgl.Marker()
-        .setLngLat([lng,lat])
-        .addTo(map)
-        );
-    var id = markers.length.toString();
-    loadSound(id, path);
-    sounds.push(id);
-}
-
-function getDistance (lng1, lat1, lng2, lat2) {
-    var from = turf.point([lng1, lat1]);
-    var to = turf.point([lng2, lat2]);
-    var distance = turf.distance(from, to, 'miles') * 5280;
-    return distance;
-}
-
-function activate (lng, lat) {
-    document.getElementById('info').innerHTML = lng.toFixed(5) + "," + lat.toFixed(5);            
-    for (var m in markers) {
-        var marker = markers[m];
-        var lngLat = marker.getLngLat();
-        var distance = getDistance(lng, lat, lngLat.lng, lngLat.lat);
-        if (distance < RADIUS) {
-            if (playable) {
-                playable = false;
-                playSound(sounds[m], 0.0, 1.0, 0.0);
-                setTimeout(function (e) {
-                    playable = true;
-                }, duration(sounds[m]) * 1000);
-            }
-        }
-    }
-}
-
-var script = document.createElement("script"); 
-script.src = "markers.js" + Math.floor(Math.random() * Math.floor(10000));
-document.body.appendChild(script);
