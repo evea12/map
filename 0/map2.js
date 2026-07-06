@@ -40,4 +40,4 @@ const map = new mapboxgl.Map({
             // Draw an arrow next to the location dot to indicate which direction the device is heading.
             showUserHeading: true
         })
-    )
+    );
