@@ -1,3 +1,11 @@
+var RADIUS = 50;
+var map = null;
+var markers = [];
+var sounds = [];
+var playable = true;
+
+initAudio();
+
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
     container: "map",
