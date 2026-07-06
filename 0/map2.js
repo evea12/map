@@ -28,9 +28,4 @@ const map = new mapboxgl.Map({
         }).on('geolocate', function (e) {
     console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
     activate(e.coords.longitude, e.coords.latitude);
-}), "top-left");
-
-var script = document.createElement("script"); 
-script.src = "markers.js" + Math.floor(Math.random() * Math.floor(10000));
-document.body.appendChild(script)
-
+}), "top-left")
