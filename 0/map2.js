@@ -22,6 +22,7 @@ const map = new mapboxgl.Map({
     zoom: 16
 });
 
+var canvas = map.getCanvasContainer();
 
 // Creates a new scale control to measure the map
     const scale = new mapboxgl.ScaleControl({
@@ -43,4 +44,31 @@ const map = new mapboxgl.Map({
             showUserHeading: true
         })
     );
+
+map.on('mousemove', function(e) {
+    canvas.style.cursor = 'default';            
+    for (var m in markers) {
+        var marker = markers[m];
+        var lngLat = marker.getLngLat();
+        var distance = getDistance(lngLat.lng, lngLat.lat, e.lngLat.lng, e.lngLat.lat);
+        if (distance < RADIUS) {
+            canvas.style.cursor = 'pointer';
+            break;
+        }
+    }
+});
+
+map.on('click', function(e) {            
+    activate(e.lngLat.lng, e.lngLat.lat);
+});
+
+function addMarker (lng, lat, path) {
+    markers.push(new mapboxgl.Marker()
+        .setLngLat([lng,lat])
+        .addTo(map)
+        );
+    var id = markers.length.toString();
+    loadSound(id, path);
+    sounds.push(id);
+};
 
