@@ -18,8 +18,13 @@
         body, html {
             margin: 0;
             padding: 0;
-        }  
-        <div id="map" style="position: absolute; top: 0; bottom: 0; width: 100%;"></div>
+        }                 
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
         #info {
             position: absolute;
             top: 0;
@@ -40,7 +45,7 @@
     <pre id="info"></pre>
     <script type="text/javascript">
         var script = document.createElement("script"); 
-        script.src = "map.js?v=" + Math.floor(Math.random() * Math.floor(10000));
+        script.src = "map.js" + Math.floor(Math.random() * Math.floor(10000));
         document.body.appendChild(script);        
     </script>      
 </body>
