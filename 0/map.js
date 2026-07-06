@@ -18,7 +18,7 @@ map = new mapboxgl.Map({
     // style: "https://openmaptiles.github.io/klokantech-terrain-gl-style/style-cdn.json",            
     // style: "https://openmaptiles.github.io/klokantech-3d-gl-style/style-cdn.json",                        
     // style: "https://openmaptiles.github.io/fiord-color-gl-style/style-cdn.json",
-    style: "https://openmaptiles.github.io/toner-gl-style/style-cdn.json",
+    style: "https://openmaptiles.github.io/dark-matter-gl-style/style-cdn.json",
     // center: [-122.670154, 45.450906],
     center: [-122.66911,45.45046],
     zoom: 16
