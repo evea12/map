@@ -1,5 +1,4 @@
 var RADIUS = 50;
-var map = null;
 var markers = [];
 var sounds = [];
 var playable = true;
