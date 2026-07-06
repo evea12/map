@@ -23,6 +23,15 @@ const map = new mapboxgl.Map({
     zoom: 16
 });
 
+map.addControl(new mapboxgl.NavigationControl({
+    showCompass: true
+}), "top-left");
+
+map.addControl(new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+}), "bottom-right");
+
  // Add geolocate control to the map.
     map.addControl(
         new mapboxgl.GeolocateControl({
