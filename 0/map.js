@@ -19,8 +19,8 @@ map = new mapboxgl.Map({
     // style: "https://openmaptiles.github.io/klokantech-3d-gl-style/style-cdn.json",                        
     // style: "https://openmaptiles.github.io/fiord-color-gl-style/style-cdn.json",
     // style: "https://openmaptiles.github.io/dark-matter-gl-style/style-cdn.json",
-    // center: [53.55922, 9.97038888],
-    center: [53.55922, 9.97038888],
+     // center: [9.97038888, 53.55922],
+        center: [9.97038888, 53.55922],
     zoom: 16
 });
 
