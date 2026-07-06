@@ -39,7 +39,4 @@ const map = new mapboxgl.Map({
             trackUserLocation: true,
             // Draw an arrow next to the location dot to indicate which direction the device is heading.
             showUserHeading: true,
-}).on('geolocate', function (e) {
-    console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
-    activate(e.coords.longitude, e.coords.latitude);
-}), "top-left")
+}))
