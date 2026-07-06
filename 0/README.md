@@ -4,7 +4,7 @@ This code is a template for creating location-based audio tours that can be view
 
 By editing `markers.js`, you can assign longitude and latitude coordinates to an audio file that you upload. This will then appear on the map as a marker. If you click the marker, the sound will play. Furthermore, if you are on your phone, the sound will play when you are physically present at that location (the hotspot is a 50ft radius around the point you specify -- but you can change this). 
 
-This map is running at [https://lclarkmaps.github.io/0].
+This map is running at 
 
 ---
 
