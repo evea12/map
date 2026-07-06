@@ -1,3 +1,10 @@
+var RADIUS = 50;
+var map = null;
+var markers = [];
+var sounds = [];
+var playable = true;
+
+initAudio();
 
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
@@ -18,12 +25,9 @@ const map = new mapboxgl.Map({
 
 // Creates a new scale control to measure the map
     const scale = new mapboxgl.ScaleControl({
-        maxWidth: 120, // the max pixel width of the scale bar to be rendered on the map (default is 100 pixels)
+        maxWidth: 100, // the max pixel width of the scale bar to be rendered on the map (default is 100 pixels)
         unit: 'metric' // The type of measurement displayed, options are: 'imperial', 'metric', 'nautical' (default it metric)
     });
-
-    // Adds the new scale control to the map
-    map.addControl(scale);
 
  // Add geolocate control to the map.
     map.addControl(
