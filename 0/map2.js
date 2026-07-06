@@ -15,14 +15,6 @@ const map = new mapboxgl.Map({
     zoom: 16
 });
 
-var RADIUS = 50;
-var map = null;
-var markers = [];
-var sounds = [];
-var playable = true;
-
-initAudio();
-
 var canvas = map.getCanvasContainer();
 
 map.addControl(new mapboxgl.NavigationControl({
