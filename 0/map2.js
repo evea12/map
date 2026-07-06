@@ -1,11 +1,3 @@
-var RADIUS = 50;
-var map = null;
-var markers = [];
-var sounds = [];
-var playable = true;
-
-initAudio();
-
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
     container: "map",
@@ -22,6 +14,14 @@ const map = new mapboxgl.Map({
         center: [9.97038888, 53.55922],
     zoom: 16
 });
+
+var RADIUS = 50;
+var map = null;
+var markers = [];
+var sounds = [];
+var playable = true;
+
+initAudio();
 
 var canvas = map.getCanvasContainer();
 
