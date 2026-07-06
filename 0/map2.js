@@ -1,3 +1,10 @@
+var RADIUS = 50;
+var markers = [];
+var sounds = [];
+var playable = true;
+
+initAudio();
+
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
     container: "map",
@@ -92,5 +99,5 @@ function activate (lng, lat) {
 }
 
 var script = document.createElement("script"); 
-script.src = "markers.js?v=" + Math.floor(Math.random() * Math.floor(10000));
+script.src = "markers.js" + Math.floor(Math.random() * Math.floor(10000));
 document.body.appendChild(script);
