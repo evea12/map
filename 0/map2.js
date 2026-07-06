@@ -26,7 +26,7 @@ const map = new mapboxgl.Map({
 // Creates a new scale control to measure the map
     const scale = new mapboxgl.ScaleControl({
         maxWidth: 120, // the max pixel width of the scale bar to be rendered on the map (default is 100 pixels)
-        unit: 'imperial' // The type of measurement displayed, options are: 'imperial', 'metric', 'nautical' (default it metric)
+        unit: 'metric' // The type of measurement displayed, options are: 'imperial', 'metric', 'nautical' (default it metric)
     });
 
     // Adds the new scale control to the map
