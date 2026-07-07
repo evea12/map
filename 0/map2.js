@@ -21,7 +21,7 @@ const map = new mapboxgl.Map({
     // style: "https://openmaptiles.github.io/fiord-color-gl-style/style-cdn.json",
     // style: "https://openmaptiles.github.io/dark-matter-gl-style/style-cdn.json",
      // center: [9.97038888, 53.55922],
-        center: [9.97038888, 53.55922],
+        center: [10.15719,56.16976],
     zoom: 16
 });
 
