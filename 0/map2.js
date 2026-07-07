@@ -72,10 +72,11 @@ map.addControl(geolocate);
 // Set an event listener that fires
 // when a geolocate event occurs.
 geolocate.on('geolocate', function (e) {
+    console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
     var position = [e.coords.longitude, e.coords.latitude];
     var units = { units: "meters" };
-    var distancetrain = turf.distance(position, train, units);
-    if (distancetrain < 50){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
+    var distance = turf.distance(position, train, units);
+    if (distance < 50){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
             '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');const eltrain = document.createElement('div');
     eltrain.id = 'marker';new mapboxgl.Marker(eltrain)
         .setLngLat(train)
