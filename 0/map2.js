@@ -76,7 +76,11 @@ map.addControl(geolocate);
 geolocate.on('geolocate', function (e) {
     console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
     activate(e.coords.longitude, e.coords.latitude);
-    const position = [e.coords.longitude, e.coords.latitude]
+    var position = [e.coords.longitude, e.coords.latitude]
+    //TEST
+    var units = { units: "meters" };
+    var distance = turf.distance(position, train, units);
+    if (distance < 30){'<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>'}
 });
 
  map.on('click', (e) => {
@@ -105,16 +109,6 @@ map.on('mousemove', function(e) {
 map.on('click', function(e) {            
     activate(e.lngLat.lng, e.lngLat.lat);
 });
-
-
-//TEST
-function getDistance (lng1, lat1, lng2, lat2) {
-    var units = { units: "meters" };
-    var distance = turf.distance(position, train, units);
-    return distance;}
-
-if (distance < 10){'<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>'}
-//END TEST
 
 function addMarker (lng, lat, path) {
     markers.push(new mapboxgl.Marker()
