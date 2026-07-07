@@ -6,6 +6,7 @@ var playable = true;
 initAudio();
 
 const train = [9.97673,53.55817];
+const wind= [9.97920,53.56170];
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
     container: "map",
@@ -23,9 +24,13 @@ const map = new mapboxgl.Map({
     zoom: 16
 });
 
- // create the popup
+ //POPUPS
+    //Train
     const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
             '<audio controls><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');
+    //Wind
+    const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p>' +
+            '<audio controls><source src="' + "wind.mp3" + '" type="audio/mpeg"></audio>');
 
     // create DOM element for the marker
     const el = document.createElement('div');
@@ -35,6 +40,10 @@ const map = new mapboxgl.Map({
     new mapboxgl.Marker(el)
         .setLngLat(train)
         .setPopup(popuptrain) // sets a popup on this marker
+        .addTo(map);
+    new mapboxgl.Marker(el)
+        .setLngLat(wind)
+        .setPopup(popupwind) // sets a popup on this marker
         .addTo(map);
 
 var canvas = map.getCanvasContainer();
