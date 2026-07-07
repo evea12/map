@@ -5,7 +5,7 @@ var playable = true;
 
 initAudio();
 
-const train = [9.97673,53.55817];
+const train = [9.97038888, 53.55922];
 const wind= [9.97920,53.56170];
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
@@ -76,6 +76,7 @@ map.addControl(geolocate);
 geolocate.on('geolocate', function (e) {
     console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
     activate(e.coords.longitude, e.coords.latitude);
+    const position = [e.coords.longitude, e.coords.latitude]
 });
 
  map.on('click', (e) => {
@@ -105,6 +106,16 @@ map.on('click', function(e) {
     activate(e.lngLat.lng, e.lngLat.lat);
 });
 
+
+//TEST
+function getDistance (lng1, lat1, lng2, lat2) {
+    var units = { units: "meters" };
+    var distance = turf.distance(position, train, units);
+    return distance;}
+
+if (distance < 10){'<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>'}
+//END TEST
+
 function addMarker (lng, lat, path) {
     markers.push(new mapboxgl.Marker()
         .setLngLat([lng,lat])
@@ -113,13 +124,6 @@ function addMarker (lng, lat, path) {
     var id = markers.length.toString();
     loadSound(id, path);
     sounds.push(id);
-}
-
-function getDistance (lng1, lat1, lng2, lat2) {
-    var from = turf.point([lng1, lat1]);
-    var to = turf.point([lng2, lat2]);
-    var distance = turf.distance(from, to, 'miles') * 5280;
-    return distance;
 }
 
 function activate (lng, lat) {
