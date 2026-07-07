@@ -80,7 +80,7 @@ geolocate.on('geolocate', function (e) {
     //TEST
     var units = { units: "meters" };
     var distance = turf.distance(position, train, units);
-    if (distance < 30){'<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>'}
+    if (distance < 100){'<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>'}
 });
 
  map.on('click', (e) => {
