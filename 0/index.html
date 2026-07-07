@@ -24,22 +24,26 @@
             bottom: 0;
             width: 100%;
         }
-        #info {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 10px 10px auto auto;    /* top right bottom left */
-            padding: 5px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 12px;
-            text-align: center;
-            color: #222;
-            background: #fff;
-        }
+        
     </style>
 </head>
 <body>
+    <style type="text/css">
+    #info {
+        display: table;
+        position: relative;
+        margin: 0px auto;
+        word-wrap: anywhere;
+        white-space: pre-wrap;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        color: #222;
+        background: #fff;
+    }
+</style>
     <div id="map"></div>
        <script src="map2.js"> </script>
 </body>
