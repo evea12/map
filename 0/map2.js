@@ -5,6 +5,7 @@ var playable = true;
 
 initAudio();
 
+const testA = [10.15332,56.16728]
 const train = [9.97684,53.55819];
 const wind= [9.97920,53.56170];
 const map = new mapboxgl.Map({
@@ -25,18 +26,26 @@ const map = new mapboxgl.Map({
 });
 
  //POPUPS
+    //testA
+    const popuptestA = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Be my guinea pig" + '</p><p>' + "Get closer to play recording" + '</p>');
     //Train
     const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p><p>' + "Get closer to play recording" + '</p>');
     //Wind
     const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p><p>' + "Get closer to play recording" + '</p>');
 
     // create DOM element for the marker
+    const eltestA = document.createElement('div');
+    eltestA.id = 'marker';
     const eltrain = document.createElement('div');
     eltrain.id = 'marker';
     const elwind = document.createElement('div');
     elwind.id = 'marker';
 
     // create the marker
+    new mapboxgl.Marker(eltestA)
+        .setLngLat(testA)
+        .setPopup(popuptestA) // sets a popup on this marker
+        .addTo(map);
     new mapboxgl.Marker(eltrain)
         .setLngLat(train)
         .setPopup(popuptrain) // sets a popup on this marker
@@ -88,6 +97,13 @@ geolocate.on('geolocate', function (e) {
     elwind.id = 'marker';new mapboxgl.Marker(elwind)
         .setLngLat(wind)
         .setPopup(popupwind) // sets a popup on this marker
+        .addTo(map)};
+    var distanceAngelo = turf.distance(position, testA, units);
+    if (distanceAngelo < 50){const popuptestA = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Surprise!" + '</p>' +
+            '<audio controls><source src="' + "angelo.mp3" + '" type="audio/mpeg"></audio>');const eltestA = document.createElement('div');
+    eltestA.id = 'marker';new mapboxgl.Marker(eltestA)
+        .setLngLat(testA)
+        .setPopup(popuptestA) // sets a popup on this marker
         .addTo(map)}
 });
 
