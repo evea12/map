@@ -5,7 +5,8 @@ var playable = true;
 
 initAudio();
 
-const testA = [10.15332,56.16728]
+//10.15332,56.16728
+const testA = [9.97038888, 53.55922]
 const train = [9.97684,53.55819];
 const wind= [9.97920,53.56170];
 const map = new mapboxgl.Map({
