@@ -24,7 +24,7 @@ const map = new mapboxgl.Map({
 });
 
  // create the popup
-    const popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
+    const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
             '<audio controls><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');
 
     // create DOM element for the marker
@@ -34,7 +34,7 @@ const map = new mapboxgl.Map({
     // create the marker
     new mapboxgl.Marker(el)
         .setLngLat(train)
-        .setPopup(popup) // sets a popup on this marker
+        .setPopup(popuptrain) // sets a popup on this marker
         .addTo(map);
 
 var canvas = map.getCanvasContainer();
