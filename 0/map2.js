@@ -45,6 +45,11 @@ var canvas = map.getCanvasContainer();
         })
     );
 
+map.on(('geolocate', function (e) {
+    console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
+    activate(e.coords.longitude, e.coords.latitude);
+}), "top-left");
+
 map.on('mousemove', function(e) {
     canvas.style.cursor = 'default';            
     for (var m in markers) {
