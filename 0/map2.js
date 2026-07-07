@@ -82,12 +82,6 @@ geolocate.on('geolocate', function (e) {
     eltrain.id = 'marker';new mapboxgl.Marker(eltrain)
         .setLngLat(train)
         .setPopup(popuptrain) // sets a popup on this marker
-        .addTo(map)};
-    else (distancewind < 50){const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p>' +
-            '<audio controls autoplay><source src="' + "wind.mp3" + '" type="audio/mpeg"></audio>');
-    elwind.id = 'marker';new mapboxgl.Marker(elwind)
-        .setLngLat(wind)
-        .setPopup(popupwind) // sets a popup on this marker
         .addTo(map)}
 });
 
