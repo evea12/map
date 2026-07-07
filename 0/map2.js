@@ -26,7 +26,7 @@ const map = new mapboxgl.Map({
 
  //POPUPS
     //Train
-    const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
+    //const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
             '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');
     //Wind
     const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p>' +
@@ -80,7 +80,8 @@ geolocate.on('geolocate', function (e) {
     //TEST
     var units = { units: "meters" };
     var distance = turf.distance(position, train, units);
-    if (distance < 100){'<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>'}
+    if (distance < 100){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
+            '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>')}
 });
 
  map.on('click', (e) => {
