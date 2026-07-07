@@ -107,6 +107,31 @@ function activate (lng, lat) {
     }
 }
 
+marker = {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [9.97038888, 53.55922]
+  },
+  "properties": {
+    "title": "Test 1",
+    "description": "test 2",
+    "audio_url": "my_test_audio.wav"
+    #my_test_audio.wav
+  }
+}
+
+
+marker.on('click', function()
+{
+    var popup = new mapboxgl.Popup({
+    offset: 25
+        })
+        .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>' +
+            '<audio controls><source src="' + marker.properties.audio_url + '" type="audio/mpeg"></audio>'); // Add the HTML audio element to the popup
+    popup.addTo(map);
+});
+
 var script = document.createElement("script"); 
 script.src = "markers.js" + Math.floor(Math.random() * Math.floor(10000));
 document.body.appendChild(script);
