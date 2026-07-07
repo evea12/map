@@ -33,15 +33,17 @@ const map = new mapboxgl.Map({
             '<audio controls><source src="' + "wind.mp3" + '" type="audio/mpeg"></audio>');
 
     // create DOM element for the marker
-    const el = document.createElement('div');
-    el.id = 'marker';
+    const eltrain = document.createElement('div');
+    eltrain.id = 'marker';
+    const elwind = document.createElement('div');
+    elwind.id = 'marker';
 
     // create the marker
-    new mapboxgl.Marker(el)
+    new mapboxgl.Marker(eltrain)
         .setLngLat(train)
         .setPopup(popuptrain) // sets a popup on this marker
         .addTo(map);
-    new mapboxgl.Marker(el)
+    new mapboxgl.Marker(elwind)
         .setLngLat(wind)
         .setPopup(popupwind) // sets a popup on this marker
         .addTo(map);
