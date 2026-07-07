@@ -24,9 +24,8 @@ const map = new mapboxgl.Map({
 });
 
  // create the popup
-    const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        'TRAIN SOUND'
-    );
+    const popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Train Sound" + '</h3><p>' + "Train Sound Des" + '</p>' +
+            '<audio controls><source src="my_test_audido.wav" type="audio/mpeg"></audio>');
 
     // create DOM element for the marker
     const el = document.createElement('div');
