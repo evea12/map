@@ -75,12 +75,19 @@ geolocate.on('geolocate', function (e) {
     console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
     var position = [e.coords.longitude, e.coords.latitude];
     var units = { units: "meters" };
-    var distance = turf.distance(position, train, units);
-    if (distance < 80){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
+    var distancetrain = turf.distance(position, train, units);
+    if (distancetrain < 80){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
             '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');const eltrain = document.createElement('div');
     eltrain.id = 'marker';new mapboxgl.Marker(eltrain)
         .setLngLat(train)
         .setPopup(popuptrain) // sets a popup on this marker
+        .addTo(map)}
+    var distancewind = turf.distance(position, wind, units);
+    if (distancewind < 80){const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p>' +
+            '<audio controls autoplay><source src="' + "wind.mp3" + '" type="audio/mpeg"></audio>');const elwind = document.createElement('div');
+    elwind.id = 'marker';new mapboxgl.Marker(elwind)
+        .setLngLat(wind)
+        .setPopup(popupwind) // sets a popup on this marker
         .addTo(map)}
 });
 
