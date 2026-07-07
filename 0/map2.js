@@ -100,7 +100,7 @@ geolocate.on('geolocate', function (e) {
         .setPopup(popupwind) // sets a popup on this marker
         .addTo(map)};
     var distanceAngelo = turf.distance(position, testA, units);
-    if (distanceAngelo < 50){const popuptestA = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Surprise!" + '</p>' +
+    if (distanceAngelo < 100){const popuptestA = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Surprise!" + '</p>' +
             '<audio controls><source src="' + "angelo.mp3" + '" type="audio/mpeg"></audio>');const eltestA = document.createElement('div');
     eltestA.id = 'marker';new mapboxgl.Marker(eltestA)
         .setLngLat(testA)
