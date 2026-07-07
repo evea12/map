@@ -45,12 +45,7 @@ var canvas = map.getCanvasContainer();
         })
     );
 
-map.on(('geolocate', function (e) {
-    console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
-    activate(e.coords.longitude, e.coords.latitude);
-}), "top-left");
-
- map.on('mousemove', (e) => {
+ map.on('click', (e) => {
         document.getElementById('info').innerHTML =
             // `e.point` is the x, y coordinates of the `mousemove` event
             // relative to the top-left corner of the map.
