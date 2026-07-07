@@ -5,7 +5,7 @@ var playable = true;
 
 initAudio();
 
-const train = [9.98673,53.55817];
+const train = [9.97673,53.55817];
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
     container: "map",
