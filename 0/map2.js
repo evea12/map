@@ -5,6 +5,7 @@ var playable = true;
 
 initAudio();
 
+const train = [9.97038888, 53.55922];
 const map = new mapboxgl.Map({
     accessToken: 'pk.eyJ1IjoiZXZlYTEyIiwiYSI6ImNtcjdzYXY5MTBocnEyeXFvYTRqamo4YTUifQ.xzMb4LxFvFWK7NVWI_tNLg',
     container: "map",
@@ -21,6 +22,21 @@ const map = new mapboxgl.Map({
         center: [9.97038888, 53.55922],
     zoom: 16
 });
+
+ // create the popup
+    const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+        'TRAIN SOUND'
+    );
+
+    // create DOM element for the marker
+    const el = document.createElement('div');
+    el.id = 'marker';
+
+    // create the marker
+    new mapboxgl.Marker(el)
+        .setLngLat(train)
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
 
 var canvas = map.getCanvasContainer();
 
@@ -87,7 +103,7 @@ function getDistance (lng1, lat1, lng2, lat2) {
     var to = turf.point([lng2, lat2]);
     var distance = turf.distance(from, to, 'miles') * 5280;
     return distance;
-}
+};
 
 function activate (lng, lat) {
     document.getElementById('info').innerHTML = lng.toFixed(5) + "," + lat.toFixed(5);            
@@ -105,33 +121,7 @@ function activate (lng, lat) {
             }
         }
     }
-}
-
-marker = {
-  "type": "Feature",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.97038888, 53.55922]
-  },
-  "properties": {
-    "title": "Test 1",
-    "description": "test 2",
-    "audio_url": "my_test_audio.wav"
-    #my_test_audio.wav
-  }
-}
-
-
-marker.on('click', function()
-{
-    var popup = new mapboxgl.Popup({
-    offset: 25
-        })
-        .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>' +
-            '<audio controls><source src="' + marker.properties.audio_url + '" type="audio/mpeg"></audio>'); // Add the HTML audio element to the popup
-    popup.addTo(map);
-});
-
+};
 var script = document.createElement("script"); 
 script.src = "markers.js" + Math.floor(Math.random() * Math.floor(10000));
 document.body.appendChild(script);
