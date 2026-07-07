@@ -6,7 +6,7 @@ var playable = true;
 initAudio();
 
 //10.15332,56.16728
-const testA = [9.97038888, 53.55922]
+const testa = [9.97038888, 53.55922]
 const train = [9.97684,53.55819];
 const wind= [9.97920,53.56170];
 const map = new mapboxgl.Map({
@@ -28,7 +28,7 @@ const map = new mapboxgl.Map({
 
  //POPUPS
     //testA
-    const popuptestA = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Be my guinea pig" + '</p><p>' + "Get closer to play recording" + '</p>');
+    const popuptesta = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Be my guinea pig" + '</p><p>' + "Get closer to play recording" + '</p>');
     //Train
     const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p><p>' + "Get closer to play recording" + '</p>');
     //Wind
@@ -36,16 +36,16 @@ const map = new mapboxgl.Map({
 
     // create DOM element for the marker
     const eltestA = document.createElement('div');
-    eltestA.id = 'marker';
+    eltesta.id = 'marker';
     const eltrain = document.createElement('div');
     eltrain.id = 'marker';
     const elwind = document.createElement('div');
     elwind.id = 'marker';
 
     // create the marker
-    new mapboxgl.Marker(eltestA)
-        .setLngLat(testA)
-        .setPopup(popuptestA) // sets a popup on this marker
+    new mapboxgl.Marker(eltesta)
+        .setLngLat(testa)
+        .setPopup(popuptesta) // sets a popup on this marker
         .addTo(map);
     new mapboxgl.Marker(eltrain)
         .setLngLat(train)
@@ -99,12 +99,12 @@ geolocate.on('geolocate', function (e) {
         .setLngLat(wind)
         .setPopup(popupwind) // sets a popup on this marker
         .addTo(map)};
-    var distanceAngelo = turf.distance(position, testA, units);
-    if (distanceAngelo < 100){const popuptestA = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Surprise!" + '</p>' +
-            '<audio controls><source src="' + "angelo.mp3" + '" type="audio/mpeg"></audio>');const eltestA = document.createElement('div');
-    eltestA.id = 'marker';new mapboxgl.Marker(eltestA)
-        .setLngLat(testA)
-        .setPopup(popuptestA) // sets a popup on this marker
+    var distanceangelo = turf.distance(position, testa, units);
+    if (distanceangelo < 100){const popuptesta = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "For Angelo" + '</h3><p>' + "Surprise!" + '</p>' +
+            '<audio controls><source src="' + "angelo.mp3" + '" type="audio/mpeg"></audio>');const eltesta = document.createElement('div');
+    eltesta.id = 'marker';new mapboxgl.Marker(eltesta)
+        .setLngLat(testa)
+        .setPopup(popuptesta) // sets a popup on this marker
         .addTo(map)}
 });
 
