@@ -50,6 +50,16 @@ map.on(('geolocate', function (e) {
     activate(e.coords.longitude, e.coords.latitude);
 }), "top-left");
 
+ map.on('mousemove', (e) => {
+        document.getElementById('info').innerHTML =
+            // `e.point` is the x, y coordinates of the `mousemove` event
+            // relative to the top-left corner of the map.
+            JSON.stringify(e.point) +
+            '<br />' +
+            // `e.lngLat` is the longitude, latitude geographical position of the event.
+            JSON.stringify(e.lngLat.wrap());
+    });
+
 map.on('mousemove', function(e) {
     canvas.style.cursor = 'default';            
     for (var m in markers) {
