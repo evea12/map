@@ -35,7 +35,7 @@ const map = new mapboxgl.Map({
     const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p><p>' + "Get closer to play recording" + '</p>');
 
     // create DOM element for the marker
-    const eltestA = document.createElement('div');
+    const eltesta = document.createElement('div');
     eltesta.id = 'marker';
     const eltrain = document.createElement('div');
     eltrain.id = 'marker';
