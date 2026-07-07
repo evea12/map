@@ -76,7 +76,7 @@ geolocate.on('geolocate', function (e) {
     var position = [e.coords.longitude, e.coords.latitude];
     var units = { units: "meters" };
     var distance = turf.distance(position, train, units);
-    if (distance < 50){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
+    if (distance < 80){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
             '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');const eltrain = document.createElement('div');
     eltrain.id = 'marker';new mapboxgl.Marker(eltrain)
         .setLngLat(train)
