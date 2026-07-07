@@ -26,8 +26,7 @@ const map = new mapboxgl.Map({
 
  //POPUPS
     //Train
-    const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
-            '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');
+    const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>');
     //Wind
     const popupwind = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "Wind" + '</h3><p>' + "Recorded 3.7.26 in Planten un Blomen" + '</p>' +
             '<audio controls autoplay><source src="' + "wind.mp3" + '" type="audio/mpeg"></audio>');
@@ -75,8 +74,7 @@ map.addControl(geolocate);
 // when a geolocate event occurs.
 geolocate.on('geolocate', function (e) {
     console.log("Geolocated: " + e.coords.longitude + "," + e.coords.latitude);
-    activate(e.coords.longitude, e.coords.latitude);
-    var position = [e.coords.longitude, e.coords.latitude]
+    var position = [e.coords.longitude, e.coords.latitude];
     //TEST
     var units = { units: "meters" };
     var distance = turf.distance(position, train, units);
