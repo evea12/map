@@ -79,7 +79,11 @@ geolocate.on('geolocate', function (e) {
     var units = { units: "meters" };
     var distance = turf.distance(position, train, units);
     if (distance < 100){const popuptrain = new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>' + "U-Bahn" + '</h3><p>' + "Recorded 7.7.26 in the Messehallen U-Bahn station" + '</p>' +
-            '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>')}
+            '<audio controls autoplay><source src="' + "Train.mp3" + '" type="audio/mpeg"></audio>');const eltrain = document.createElement('div');
+    eltrain.id = 'marker';new mapboxgl.Marker(eltrain)
+        .setLngLat(train)
+        .setPopup(popuptrain) // sets a popup on this marker
+        .addTo(map)}
 });
 
  map.on('click', (e) => {
